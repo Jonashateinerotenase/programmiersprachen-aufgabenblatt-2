@@ -17,7 +17,9 @@ public:
 	float area() const;
 	float circumrefence() const;
 	void draw(Window& win);
+	void draw(Window& win, color c);
 	float get_a() const;
 	float get_b() const;
+	bool isinside(Vec2 p);
 };
 #endif

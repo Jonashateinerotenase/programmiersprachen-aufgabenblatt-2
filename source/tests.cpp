@@ -171,6 +171,27 @@ TEST_CASE (" phi ", "[kauderwelsch]")
 	REQUIRE(mrm2.c_ ==Approx(0.841471f));
 	REQUIRE(mrm2.d_ ==Approx(0.540302f));
 }
+TEST_CASE (" kreis ", "[kauderwelsch]")
+{
+	Circle c{};
+	REQUIRE(c.area() ==Approx(31415.926535897));
+	REQUIRE(c.circumrefence()==Approx(628.318530718));
+	c.set_radius(2);
+	REQUIRE(c.get_radius()==Approx(2));
+	REQUIRE(c.area()==Approx(12.5663706144));
+	Vec2 x{100,100};
+	REQUIRE(c.isinside(x)==true);
+	Vec2 x1{100,100};
+	Circle c1{100,x1};
+	REQUIRE(c1.area() ==Approx(31415.926535897));
+	REQUIRE(c1.circumrefence()==Approx(628.318530718));
+	c1.set_radius(2);
+	REQUIRE(c1.get_radius()==Approx(2));
+	REQUIRE(c1.area()==Approx(12.5663706144));
+	REQUIRE(c1.isinside(x1)==true);
+	
+
+}
 /*TEST_CASE (" kreis ", "[kauderwelsch]")
 {
 	

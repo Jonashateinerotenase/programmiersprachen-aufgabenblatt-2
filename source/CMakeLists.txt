@@ -2,12 +2,12 @@
 add_executable(example
   window.cpp
   glew.c
+  example.cpp
   vec2.cpp
   mat2.cpp
   circle.cpp
-  color.cpp
   rectangle.cpp
-  example.cpp
+  color.cpp
   )
   
 target_link_libraries(example
@@ -25,17 +25,26 @@ add_executable(tests
   color.cpp
   window.cpp
   glew.c
- 	tests.cpp)
+  tests.cpp)
 target_link_libraries(tests
   glfw
   ${GLFW_LIBRARIES})
 
-# Build example
-add_executable(
+
+
+add_executable(Uhr
   window.cpp
+  glew.c
+  Uhr.cpp
   vec2.cpp
   mat2.cpp
   circle.cpp
   color.cpp
   rectangle.cpp
   )
+  
+target_link_libraries(Uhr
+  glfw
+  ${GLFW_LIBRARIES}
+  m)
+add_dependencies(Uhr glfw ${COPY_BINARY})

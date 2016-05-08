@@ -27,7 +27,6 @@ float Rectangle::area() const{
 float Rectangle::circumrefence() const{
 	return 2*breite+2*hoehe;
 }
-//void Rectangle::draw() const{}
 float Rectangle::get_a() const{
 	return breite;
 }
@@ -51,4 +50,27 @@ void Rectangle::draw(Window& win)
     win.draw_line(p.x, hoehe+p.y,
                   p.x, p.y, 
                   farbe.x_,farbe.y_,farbe.z_);
+}
+void Rectangle::draw(Window& win, color c1){
+	win.draw_line(p.x, p.y,
+                  breite + p.x, p.y, 
+                  c1.x_,c1.y_,c1.z_);
+
+    win.draw_line(breite+p.x, p.y,
+                  breite+p.x, hoehe+p.y, 
+                  c1.x_,c1.y_,c1.z_);
+
+    win.draw_line(breite+p.x, hoehe+p.y,
+                  p.x, hoehe+p.y, 
+                  c1.x_,c1.y_,c1.z_);
+
+    win.draw_line(p.x, hoehe+p.y,
+                  p.x, p.y, 
+                  c1.x_,c1.y_,c1.z_);
+
+}
+bool Rectangle::isinside(Vec2 q)
+{
+	if(q.x>=p.x and q.y>=p.y and q.x<=p.x+breite and q.y<=p.y+hoehe) return true;
+	else return false;
 }
