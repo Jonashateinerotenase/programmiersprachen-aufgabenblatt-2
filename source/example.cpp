@@ -22,18 +22,18 @@ int main(int argc, char* argv[])
     Rectangle r{v,0.4,0.4, farbex};
     circles[0]={0.2,v1};
     circles[1]={0.3,v1};
-    rectangles[0]={v,0.4,0.4};
+    rectangles[0]={v,0.4,0.4, farbex};
     rectangles[1]={v,0.3,0.3};
     auto m = win.mouse_position();
     Vec2 pieps{m.first,m.second};    
     Circle c{0.2,v1};
     
-    if(r.isinside(pieps)==true)farbex={0.0,0.0,1.0};
-    r.draw(win);
-    r.draw(win,farbex);
-    if(c.isinside(pieps)==true)farbey={0.0,0.0,1.0};
-    c.draw(win);
-    c.draw(win,farbey);
+    if(rectangles[0].isinside(pieps)==true)farbex={0.0,0.0,1.0};
+    rectangles[0].draw(win);
+    rectangles[0].draw(win,farbex);
+    if(circles[0].isinside(pieps)==true)farbey={0.0,0.0,1.0};
+    circles[0].draw(win);
+    circles[0].draw(win,farbey);
 
     auto t = win.get_time();
     float x1{0.5f + 0.5f * std::sin(t)};

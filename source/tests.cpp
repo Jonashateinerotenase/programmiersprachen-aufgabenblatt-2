@@ -4,6 +4,7 @@
 #include "mat2.hpp"
 #include <cmath>
 #include "circle.hpp"
+#include "rectangle.hpp"
 
 
 TEST_CASE (" vec2 ", "[kauderwelsch]")
@@ -20,7 +21,10 @@ TEST_CASE (" vec2operator+=", "[kauderwelsch]")
 {
 	Vec2 v1{1.04f, 2.028f};
 	Vec2 v2{1.08f, 32.083f};
+	Vec2 v3{-1.0f,0.00f};
 	v1+=v2;
+	v2+=v3;
+	REQUIRE(v2.x== Approx(0.08f));
 	REQUIRE (v1.x == Approx(2.12f));
 	REQUIRE (v1.y == Approx(34.111f));
 }
@@ -192,14 +196,18 @@ TEST_CASE (" kreis ", "[kauderwelsch]")
 	
 
 }
-/*TEST_CASE (" kreis ", "[kauderwelsch]")
+/*TEST_CASE (" rechteck ", "[kauderwelsch]")
 {
-	
-	REQUIRE(mrm2.a_ ==Approx(0.540302f));
-	REQUIRE(mrm2.b_ ==Approx(-0.841471f));
-	REQUIRE(mrm2.c_ ==Approx(0.841471f));
-	REQUIRE(mrm2.d_ ==Approx(0.540302f));
+	Rectangle r1{};
+	REQUIRE(r1.area() ==Approx(2500));
+	REQUIRE(r1.circumrefence()==Approx(200));
+	REQUIRE(r1.get_a()==50);
+	REQUIRE(r1.get_b()==50);
+	Vec2 x1{50,50};
+	REQUIRE(r1.isinside(x1)==true);
+
 }*/
+	
 int main(int argc, char *argv[])
 {
   return Catch::Session().run(argc, argv);
